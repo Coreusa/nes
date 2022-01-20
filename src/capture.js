@@ -16,24 +16,19 @@ const options = {
   to: ``
 }
 const slugCharsToRemove = /[*+~.()'"!:@#¤%&/]/g
+const characterRemovalRegexp = /[\s-|&:\!;$%@"<>'()+,]/gi
 const processed = []
 const failed = []
 const progressBar = new cliProgress.SingleBar({
     format: 'Capturing... {bar} {percentage}% | {value}/{total} | ROM: {file} | ETA: {etaMinutes}m {etaSeconds}s',
     hideCursor: true
 }, cliProgress.Presets.shades_classic);
-// Read all ROM files in the directory
-// const readFiles = new Promise((resolve, reject) => {
-//   fs.readdir(romDir, (err, files) => {
-//     resolve(files)
-//   })
-// })
 
 fs.readdir(romDir, (err, files) => {
   // Figure out meta data about each file
   files.forEach((file, index) => {
     let nameToFind = file.replace(/\s?\(.*\)(\.nes)/g, '')
-    nameToFind = nameToFind.replace(/[\s-|&:\!;$%@"<>'()+,]/gi, '').toLowerCase()
+    nameToFind = nameToFind.replace(characterRemovalRegexp, '').toLowerCase()
     // Due to naming conventions, : are - in filenames. Also names with 'n must have a space We must transform them back to find potential matches
     // Find the region (xyz)
     const regionMatch = file.match(/\(.*\)/)
@@ -61,10 +56,7 @@ fs.readdir(romDir, (err, files) => {
           const entryRegion = e._region.toLowerCase()
           let entryName = e._name.toLowerCase()
           // Remove problematic chars from names for easier matching
-          // const alteredNameToFind = nameToFind.replace(/[\s-|&;$%@"<>'()+,]/gi, '')
-          entryName = entryName.replace(/[\s-|&;:\!$%@"<>'()+,]/gi, '')
-          // console.dir('ALTERED FILENAME FOR ROM: ' + alteredNameToFind);
-          // console.dir('ENTRY NAME IN DB ALTERED: ' + entryName);
+          entryName = entryName.replace(characterRemovalRegexp, '')
           return (entryRegion === region || entryRegion === 'usa') && (entryName === nameToFind)
         })
       if (gameInfo.length) {
