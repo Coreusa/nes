@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.emulator {
+    background-color: green;
+    width: 512px;
+    height: 480px;
+    /* margin-top: -18px; */
+    /* margin-left: -14px;  */
+}
+
+canvas {
+    width: 100%;
+
+}
