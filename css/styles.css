@@ -15,3 +15,7 @@ canvas {
     width: 100%;
 
 }
+
+.screen {
+  image-rendering: pixelated;
+}
