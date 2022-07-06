@@ -8,7 +8,11 @@ NES Cart Database: http://bootgod.dyndns.org:7777/. There's a local copy (which 
 The results are only as good as its data. At time of writing, some games are unfortunately missing (http://bootgod.dyndns.org:7777/missing.php) - mostly Japanese games. In time though, they'll be added once information surfaces. Furthermore your ROM files must adhere to some kind of standard. If you use the No-intro NES ROM set, there are around 1400 or so that can be found using the NESDB.
 
 # License
-This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. For private use / study only. <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>. The project follows any licenses for any external sources used in the project. 
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. For private use / study only. 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>. 
+  
+  The project follows any licenses for any external sources used in the project. 
 
 # Initial setup
 Configure your API key (for remote API lookup) in src/config.js.
